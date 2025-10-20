@@ -197,7 +197,7 @@ export default class ColorFilterTexture extends Component {
                 fillCount = 0;
                 this.updateTextureData();
             }
-            console.log(`colorPointList1: ${colorPointList1.length}`);
+            // console.log(`colorPointList1: ${colorPointList1.length}`);
         } while(colorPointList1.length > 0);
 
         this.updateTextureData();
