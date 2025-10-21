@@ -1,7 +1,7 @@
 import { _decorator, Component, instantiate, Node, Prefab, ScrollView, SpriteFrame,Texture2D } from 'cc';
 import { selectItem } from './selectItem';
 const { ccclass, property } = _decorator;
-
+//https://m.jianbihua.com/ 美术资源网站
 @ccclass('SelectView')
 export class SelectView extends Component {
 
