@@ -17,7 +17,10 @@ export default logicConfig;
 
 export const  configColors:Color[] = [
 	// 1-30 常见颜色（中文/English/HEX）
+
 	new Color(255, 0, 0, 255),     // 红色 / Red / #FF0000
+	new Color(255, 255, 255, 255), // 白色 / White / #FFFFFF
+	new Color(0, 0, 0, 255),       // 黑色 / Black / #000000
 	new Color(0, 255, 0, 255),     // 绿色 / Green / #00FF00
 	new Color(0, 0, 255, 255),     // 蓝色 / Blue / #0000FF
 	new Color(255, 255, 0, 255),   // 黄色 / Yellow / #FFFF00
@@ -45,4 +48,5 @@ export const  configColors:Color[] = [
 	new Color(160, 82, 45, 255),   // 杏仁褐 / Sienna / #A0522D
 	new Color(245, 245, 220, 255), // 米色 / Beige / #F5F5DC
 	new Color(255, 127, 80, 255),  // 珊瑚色 / Coral / #FF7F50
+
 ];

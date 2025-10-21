@@ -9,6 +9,7 @@ import { Component, Sprite, Texture2D, _decorator, Node, EventTouch, SpriteFrame
 import ColorFilterTexture from "./ColorFillTexture";
 import logicConfig, { configColors } from "./LogicConfig";
 import { ColorItem } from "./ColorItem";
+import { SelectView } from "./SelectView";
 const { ccclass, property } = _decorator;
 
 @ccclass
@@ -25,6 +26,12 @@ export default class GameScene extends Component {
 	@property(Prefab)
 	colorPrefab: Prefab = null;
 
+	@property(SelectView)
+	selectView: SelectView = null;
+
+	@property(Node)
+	btn_select: Node = null;
+
 	private _colorFillTexture: ColorFilterTexture = null;
 	/**
 	 * 当前颜色
@@ -36,6 +43,7 @@ export default class GameScene extends Component {
 
 	protected start(): void {
 		this.sprite.node.on(Node.EventType.TOUCH_START, this.onTouchStart, this);
+		this.btn_select.on(Node.EventType.TOUCH_START, this.onSelectClick, this);
 		this.createColorFill(this.texture2D);
 		
 		//初始化颜色
@@ -46,8 +54,16 @@ export default class GameScene extends Component {
 		this.scheduleOnce(() => {
 		    this.scrollView.scrollToLeft(0);
 		})
+		//显示选择
+		this.selectView.show(true);
+		this.selectView.setSelectFunc((texture:Texture2D)=>{
+			this.createColorFill(texture);
+		})
 	}
 
+	protected onSelectClick(event: EventTouch): void {
+		this.selectView.show(true);
+	}
 	protected onTouchStart(event: EventTouch): void {
 		let location = event.touch.getUILocation();
 		let uiTransform = this.sprite.getComponent(UITransform);
