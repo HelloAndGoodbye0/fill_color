@@ -132,7 +132,18 @@ export default class ColorFilterTexture extends Component {
         let index = ColorFilterTexture.positionToBufferIndex(width, x, y);
         return buffer[index + 3];
     }
-
+    /**
+     * 获取指定位置颜色
+     * @param buffer 
+     * @param width 
+     * @param x 
+     * @param y 
+     * @returns 
+     */
+    public static getColor(buffer: Uint8Array, width: number, x: number, y: number): Color {
+        let index = ColorFilterTexture.positionToBufferIndex(width, x, y);
+        return new Color(buffer[index + 0], buffer[index + 1], buffer[index + 2], buffer[index + 3]);
+    }
     /**
      * 点坐标转换成图片buffer的索引
      * @param width 图片宽度
