@@ -55,7 +55,9 @@ export class SelectView extends Component {
         this.node.active = b;
         if(b)
         {
-            this.scrollView.scrollToTop(0);
+            this.scheduleOnce(()=>{
+                this.scrollView.scrollToTop(0);
+            })
         }
     }
     /**
