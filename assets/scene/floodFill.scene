@@ -1320,7 +1320,7 @@
     "_enabled": true,
     "__prefab": null,
     "texture2D": {
-      "__uuid__": "34fba2fc-d017-4c33-afe4-fbe50bf43a66@6c48a",
+      "__uuid__": "3068ff88-7d5b-4da9-8fd9-16b7babfffc3@6c48a",
       "__expectedType__": "cc.Texture2D"
     },
     "sprite": {

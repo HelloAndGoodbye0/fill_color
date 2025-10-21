@@ -193,8 +193,10 @@ export default class ColorFilterTexture extends Component {
                     const nx = item.x + offset.x, ny = item.y + offset.y;
                     // 跳过越界点或已经被设置成目标颜色（以 targetData 的 alpha 为准）
                     if (!ColorFilterTexture.isInside(this.width, this.height, nx, ny)) continue;
-                    const alpha = ColorFilterTexture.getAlphaColor(this.targetData, this.width, nx, ny);
-                    if (alpha === color.a) continue;
+                    // const alpha = ColorFilterTexture.getAlphaColor(this.targetData, this.width, nx, ny);
+                    const nowColor = ColorFilterTexture.getColor(this.targetData, this.width, nx, ny);
+                    const originColor = ColorFilterTexture.getColor(this.sourceData, this.width, nx, ny);
+                    if (originColor.a>this._alphaThreshold || nowColor.equals(color)) continue;
                     pushIfValid(colorPointList2, nx, ny, gridIndexNeighbors[type]);
                 }
                 // 如果 setColor 返回 false，则跳过（不影响邻居探索）
